@@ -1,7 +1,8 @@
-#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1
+#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1 1
 #first number - smoothing window
 #second number - 0/1 do movie of preview
-#third number - 0/1 render with tahyon or not (tachyon allows commandline rendering)
+#third number - 0/1 render with tachyon or not (tachyon allows commandline rendering)
+#forth number -0/1 display time or not
 set mov [lindex $argv 4] 
 
 set title [lindex $argv 2] 
@@ -17,6 +18,9 @@ set trj [lindex $argv 1]
 
 set render 0
 set render [lindex $argv 5]
+
+set timesh 0
+set timesh [lindex $argv 6]
 
 source VMD_scripts/input_param.tcl
 source VMD_scripts/add_text_layer.tcl
@@ -127,7 +131,7 @@ mol smoothrep top 6 $sm
 
 #Key argininges
 mol representation VDW
-mol color Orange
+mol color ColorID 3
 mol selection {(chain A E and resid 83 63 49) or (chain B F and resid 45) or (chain C G and resid 42 77) or (chain D H and resid 30)}
 mol material AOShiny
 mol addrep top
@@ -187,10 +191,12 @@ color change rgb 30 0.81 0.18 0.18
  set txtlncount 0
 
 # #prepare scene
- scale by $scale
- translate by $transx $transy $transz
- axes location off
- display update ui
+scale by $scale
+translate by $transx $transy $transz
+#added to show dimer from interesting side
+rotate y by 180 
+axes location off
+display update ui
 
 # #add some text on new layer
  add_text_layer HEADNAME
@@ -287,14 +293,22 @@ display update
 
 #mol top 1
 
+proc src {file args} {
+  set argv $::argv
+  set argc $::argc
+  set ::argv $args
+  set ::argc [llength $args]
+  set code [catch {uplevel [list source $file]} return]
+  set ::argv $argv
+  set ::argc $argc
+  return -code $code $return
+}
+
+
 if {$mov == 1 } {
 puts "Will make images for movie"
-if {$render == 1} {
-puts "With Tachyon"
 
-source VMD_scripts/movie_Tachyon.tcl    
-} else {
-source VMD_scripts/movie.tcl 
-}
+src VMD_scripts/movie.tcl $render $timesh
+
 exit
 }

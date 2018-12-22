@@ -7,6 +7,7 @@ mol delete 0
 set first 1
 set last 1000
 set nframes [expr  [molinfo 1 get numframes] - 1 ]
+#set nframes 20
 
 
 
