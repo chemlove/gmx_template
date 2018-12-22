@@ -1,24 +1,29 @@
-#to make movie run vmd -e view_nucl.tcl -args 1 1 big_data/h3-h4_xray.pdb big_data/h3-h4.xtc 1
-set val [lindex $argv 1] 
+#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1
+#first number - smoothing window
+#second number - 0/1 do movie of preview
+#third number - 0/1 render with tahyon or not (tachyon allows commandline rendering)
+set mov [lindex $argv 4] 
+
+set title [lindex $argv 2] 
 
 set sm 1 
-set sm [lindex $argv 0] 
+set sm [lindex $argv 3] 
 
 set init big_data/h3-h4_xray.pdb
-set init [lindex $argv 2]
+set init [lindex $argv 0]
 
 set trj big_data/h3-h4.xtc
-set trj [lindex $argv 3]
+set trj [lindex $argv 1]
 
 set render 0
-set render [lindex $argv 4]
+set render [lindex $argv 5]
 
 source VMD_scripts/input_param.tcl
 source VMD_scripts/add_text_layer.tcl
 
 display rendermode GLSL
 
-set title "MD simulations of H3-H4, tails truncated"
+#set title "MD simulations of H3-H4, tails truncated"
 
 ####
 #Display the reference crystal structure
@@ -282,7 +287,7 @@ display update
 
 #mol top 1
 
-if {$val == 1 } {
+if {$mov == 1 } {
 puts "Will make images for movie"
 if {$render == 1} {
 puts "With Tachyon"
