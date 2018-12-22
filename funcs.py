@@ -5,10 +5,10 @@ import nglview as nv
 import MDAnalysis as mda
 
 
-def view_nucl(*args):
+def view_nucl(*args,gui=False):
     nuclMD=mda.Universe(*args)
     #prot = nuclMD.select_atoms("protein")
-    show=nv.show_mdanalysis(nuclMD,gui=False)
+    show=nv.show_mdanalysis(nuclMD,gui=gui)
     show.representations = [
     {"type": "cartoon", "params": {
         "sele": ":A :E", "color": 0x020AED,"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1

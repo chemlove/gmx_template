@@ -2,14 +2,14 @@
 ;	File 'mdout.mdp' was generated
 ;	By user: unknown (1001)
 ;	On host: newton
-;	At date: Mon Dec 10 00:57:36 2018
+;	At date: Sat Dec 22 23:19:54 2018
 ;
 ;	Created by:
 ;	                     :-) GROMACS - gmx grompp, 2018.3 (-:
 ;	
 ;	Executable:   /opt/miniconda3/envs/moldyn/bin/gmx
 ;	Data prefix:  /opt/miniconda3/envs/moldyn
-;	Working dir:  /home/_shared/_projects/nucl_gmx/h3-h4_tm/GMX_system
+;	Working dir:  /home/alexsha/projects/gmx_template_test/GMX_system
 ;	Command line:
 ;	  gmx grompp -f ../MDProtocols/ions.mdp -c init_solv.pdb -p topol.top -o ions.tpr -maxwarn 1
 
