@@ -42,5 +42,17 @@ chmod u+x get_files.sh
 
 
             ;;
+            
+         g)
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/status.ipynb -o status.ipynb
+
+
+            ;;
+          f)
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/funcs.py -o funcs.py
+
+
+            ;;
+ 
  
 esac
