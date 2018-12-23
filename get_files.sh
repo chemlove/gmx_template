@@ -31,5 +31,16 @@ curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.c
 
 
             ;;
+        c)
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/config.py -o config.py
+
+
+            ;;
+         g)
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/get_files.sh -o get_files.sh
+chmod u+x get_files.sh
+
+
+            ;;
  
 esac
