@@ -54,7 +54,7 @@ curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.c
 
             ;;
            all)
-curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@github.com/intbio/gmx_template/archive/master.zip -o master.zip
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@codeload.github.com/intbio/gmx_template/zip/master -o master.zip
 
 
             ;;
