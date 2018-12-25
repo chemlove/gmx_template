@@ -2,7 +2,7 @@
 ;	File 'topol.top' was generated
 ;	By user: unknown (1001)
 ;	On host: newton
-;	At date: Sat Dec 22 23:19:42 2018
+;	At date: Tue Dec 25 09:22:08 2018
 ;
 ;	This is a standalone topology file
 ;
@@ -11,7 +11,7 @@
 ;	
 ;	Executable:   /opt/miniconda3/envs/moldyn/bin/gmx
 ;	Data prefix:  /opt/miniconda3/envs/moldyn
-;	Working dir:  /home/alexsha/projects/gmx_template_test/GMX_system
+;	Working dir:  /home/_shared/_projects/gmx_template/GMX_system
 ;	Command line:
 ;	  gmx pdb2gmx -f ../h3_h4_tm.pdb -o init.pdb -p topol.top -i posre.itp -water tip3p -ff amber14sb_parmbsc1
 ;	Force field was read from current directory or a relative path - path added.
@@ -21,8 +21,8 @@
 #include "./amber14sb_parmbsc1.ff/forcefield.itp"
 
 ; Include chain topologies
-#include "topol_Protein_chain_A.itp"
-#include "topol_Protein_chain_B.itp"
+#include "topol_Protein_chain_E.itp"
+#include "topol_Protein_chain_F.itp"
 
 ; Include water topology
 #include "./amber14sb_parmbsc1.ff/tip3p.itp"
@@ -43,8 +43,8 @@ MDANALYSIS FRAME 0: Created by PDBWriter in water
 
 [ molecules ]
 ; Compound        #mols
-Protein_chain_A     1
-Protein_chain_B     1
-SOL         25895
-NA               70
-CL               84
+Protein_chain_E     1
+Protein_chain_F     1
+SOL         26029
+NA               71
+CL               85
