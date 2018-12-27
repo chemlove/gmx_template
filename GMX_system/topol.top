@@ -1,0 +1,58 @@
+;
+;	File 'topol.top' was generated
+;	By user: unknown (1001)
+;	On host: newton
+;	At date: Thu Dec 27 15:51:25 2018
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2018.3 (-:
+;	
+;	Executable:   /opt/miniconda3/envs/moldyn/bin/gmx
+;	Data prefix:  /opt/miniconda3/envs/moldyn
+;	Working dir:  /home/_shared/_projects/gmx_template/GMX_system
+;	Command line:
+;	  gmx pdb2gmx -f ../h3_h4_tm.pdb -o init.pdb -p topol.top -i posre.itp -water tip3p -ff amber14sb_parmbsc1
+;	Force field was read from current directory or a relative path - path added.
+;
+
+; Include forcefield parameters
+#include "./amber14sb_parmbsc1.ff/forcefield.itp"
+
+; Include chain topologies
+#include "topol_Protein_chain_A.itp"
+#include "topol_Protein_chain_B.itp"
+
+; Include water topology
+#include "./amber14sb_parmbsc1.ff/tip3p.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "./amber14sb_parmbsc1.ff/ions.itp"
+
+[ system ]
+; Name
+MDANALYSIS FRAME 0: Created by PDBWriter in water
+
+[ molecules ]
+; Compound        #mols
+Protein_chain_A     1
+Protein_chain_B     1
+SOL                 8
+SOL                 3
+SOL                95
+SOL                60
+SOL                 3
+SOL                 2
+SOL                 2
+SOL                 2
+SOL         27473
+NA               75
+CL               89
