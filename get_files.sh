@@ -3,7 +3,7 @@
 
 case "$1" in
         1)
-curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/1_1_prepare_system.ipynb -o 1_prepare_system.ipynb 
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/1_1_prepare_system.ipynb -o 1_1_prepare_system.ipynb 
             ;;
          
         2)
