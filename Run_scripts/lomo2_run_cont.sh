@@ -14,6 +14,20 @@
 export OMP_NUM_THREADS=6
 
 
+
+if [[ $(find . -name "*" -mmin -2) ]]; then
+echo "Some files in this folder were modified less than 2 minutes ago"
+echo "Waiting for another 120 sec and retest ..."
+sleep 120
+
+if [[ $(find . -name "*" -mmin -2) ]]; then
+echo "Apparently another simulation is running in this directory"
+echo "We will exit for safety"
+exit -1
+fi
+fi
+
+
 #Due to a bug in Gromacs we need to specify -pf and -px files from the pull code explicitly
 mpirun -np $(($SLURM_JOB_NUM_NODES * 2)) gmx_mpi mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1 -cpi $1.cpt -px $1_pullx.xvg -pf $1_pullf.xvg
 
