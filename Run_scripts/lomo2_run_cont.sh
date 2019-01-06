@@ -14,8 +14,9 @@
 export OMP_NUM_THREADS=6
 
 
+#Due to a bug in Gromacs we need to specify -pf and -px files from the pull code explicitly
+mpirun -np $(($SLURM_JOB_NUM_NODES * 2)) gmx_mpi mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1 -cpi $1.cpt -px $1_pullx.xvg -pf $1_pullf.xvg
 
-mpirun -np $(($SLURM_JOB_NUM_NODES * 2)) gmx_mpi mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1 -cpi $1.cpt
 
 #Script should be run with 
 #module load slurm gromacs/2018-gcc
