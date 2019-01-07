@@ -27,3 +27,6 @@ Alternatively, just install it manually into specific conda env.
 - `conda install nodejs`
 - `jupyter-labextension install @jupyter-widgets/jupyterlab-manager@0.33.2`
 - `jupyter-labextension install nglview-js-widgets@1.1.2`
+
+### Install FoldX
+http://foldxsuite.crg.eu
