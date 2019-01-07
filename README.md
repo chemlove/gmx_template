@@ -11,6 +11,9 @@ This is a template/example of a pipeline for MD simulations in gromacs and their
 - `conda install nglview -c conda-forge`
 - `conda install -c conda-forge ffmpeg`
 - `conda install -c intbio seq_tools`
+- `conda install -c acellera propka`
+
+
 
 ### Install VMD
 for Mac there is a conda version
