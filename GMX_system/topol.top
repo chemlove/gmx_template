@@ -2,7 +2,7 @@
 ;	File 'topol.top' was generated
 ;	By user: unknown (1001)
 ;	On host: newton
-;	At date: Thu Dec 27 15:51:25 2018
+;	At date: Mon Jan  7 15:52:31 2019
 ;
 ;	This is a standalone topology file
 ;
@@ -45,14 +45,6 @@ MDANALYSIS FRAME 0: Created by PDBWriter in water
 ; Compound        #mols
 Protein_chain_A     1
 Protein_chain_B     1
-SOL                 8
-SOL                 3
-SOL                95
-SOL                60
-SOL                 3
-SOL                 2
-SOL                 2
-SOL                 2
-SOL         27473
-NA               75
-CL               89
+SOL         25895
+NA               70
+CL               84

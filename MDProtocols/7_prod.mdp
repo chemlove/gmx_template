@@ -115,7 +115,7 @@ lincs-warnangle          = 30
 ; Below is only relevant for MD
 
 ; GENERATE VELOCITIES FOR STARTUP RUN
-gen-vel                  = yes
+gen-vel                  = no
 gen-temp                 = 300
 gen-seed                 = -1
 
