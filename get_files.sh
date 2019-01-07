@@ -29,6 +29,10 @@ curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.c
         6)
 curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/6_1_basic_analysis.ipynb -o 6_1_basic_analysis.ipynb
 
+            ;;
+        60)
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/6_0_quality_control.ipynb -o 6_0_quality_control.ipynb
+
 
             ;;
         c)
