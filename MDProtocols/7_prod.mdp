@@ -1,8 +1,10 @@
-;MDP-file production run: 1000 ns.
+;MDP-file production run: 10 000 ns.
+; this protocol does not generate velocities (gen-vel = no), so velocities should be provided to grompp, e.g. from .cpt file
 
 ; VARIOUS PREPROCESSING OPTIONS
 include                  = 
-define                   = ; will trigger the inclusion of posre.itp into your topology, used for implementing position restraints.
+define                   = ; NO RESTRAINTS DEFINED HERE
+; will trigger the inclusion of posre.itp into your topology, used for implementing position restraints.
 ; here we assume that in posres.itp file all force constants have been changed to POSRES_FC
 ; see this link for details http://mdsquad.wikia.com/wiki/Change_position_restraint_force_constant_in_MDP
 ;1000 kJ mol-1 nm-2 is the default constant
@@ -10,7 +12,7 @@ define                   = ; will trigger the inclusion of posre.itp into your t
 
 ; RUN CONTROL PARAMETERS
 integrator               = md ; Steepest descent integrator
-nsteps                   = 500000000 ; 500 000 000 = 1 microsecond 
+nsteps                   = 5000000000 ; 5 000 000 000 = 10 microsecond 
 init-step                = 0 ; For exact run continuation or redoing part of a run
 simulation-part          = 1 ; Part index is updated automatically on checkpointing (keeps files separate)
 comm-mode                = Linear ; mode for center of mass motion removal
@@ -147,3 +149,28 @@ refcoord-scaling         = all ; The reference coordinates are scaled with the s
 ; ENERGY GROUP EXCLUSIONS
 ; Pairs of energy groups for which all non-bonded interactions are excluded
 energygrp-excl           = 
+; Pull code
+pull                    = yes
+pull_ncoords            = 2         ; only one reaction coordinate
+pull_ngroups            = 4         ; two groups defining one reaction coordinate
+pull_group1_name        = a_11
+pull_group2_name        = a_1946
+pull_group3_name        = a_962
+pull_group4_name        = a_993
+pull_coord1_type        = umbrella  ; harmonic potential
+pull_coord1_geometry    = distance  ; simple distance increase
+pull_coord1_dim         = Y Y Y     ; pull along z
+pull_coord1_groups      = 1 2       ; groups 1 (Chain A) and 2 (Chain B) define the reaction coordinate
+pull_coord1_start       = no       ; define initial COM distance > 0
+pull_coord1_rate        = 0.00      ; 0.01 nm per ps = 10 nm per ns
+pull_coord1_k           = 1000      ; kJ mol^-1 nm^-2, 4 kT per A which is ok
+pull-coord1-init        = 0.9147216383567918
+
+pull_coord2_type        = umbrella  ; harmonic potential
+pull_coord2_geometry    = distance  ; simple distance increase
+pull_coord2_dim         = Y Y Y     ; pull along z
+pull_coord2_groups      = 3 4       ; groups 1 (Chain A) and 2 (Chain B) define the reaction coordinate
+pull_coord2_start       = no       ; define initial COM distance > 0
+pull_coord2_rate        = 0.00      ; 0.01 nm per ps = 10 nm per ns
+pull_coord2_k           = 1000      ; kJ mol^-1 nm^-2, 4 kT per A which is ok
+pull-coord2-init        = 0.883345618946298

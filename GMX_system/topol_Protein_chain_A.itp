@@ -2,7 +2,7 @@
 ;	File 'topol_Protein_chain_A.itp' was generated
 ;	By user: unknown (1001)
 ;	On host: newton
-;	At date: Mon Jan  7 15:52:31 2019
+;	At date: Sun Jan 13 01:08:30 2019
 ;
 ;	This is a include topology file
 ;
@@ -13,7 +13,7 @@
 ;	Data prefix:  /opt/miniconda3/envs/moldyn
 ;	Working dir:  /home/_shared/_projects/gmx_template/GMX_system
 ;	Command line:
-;	  gmx pdb2gmx -f ../h3_h4_tm.pdb -o init.pdb -p topol.top -i posre.itp -water tip3p -ff amber14sb_parmbsc1
+;	  gmx pdb2gmx -f ../h3-h4_tm_DNA.pdb -o init.pdb -p topol.top -i posre.itp -water tip3p -ff amber14sb_parmbsc1_cufix
 ;	Force field was read from current directory or a relative path - path added.
 ;
 
