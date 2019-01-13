@@ -151,9 +151,9 @@ pull                    = yes
 pull_ncoords            = 2         ; only one reaction coordinate
 pull_ngroups            = 4         ; two groups defining one reaction coordinate
 pull_group1_name        = a_11
-pull_group2_name        = a_1946
-pull_group3_name        = a_962
-pull_group4_name        = a_993
+pull_group2_name        = a_1882
+pull_group3_name        = a_930
+pull_group4_name        = a_961
 pull_coord1_type        = umbrella  ; harmonic potential
 pull_coord1_geometry    = distance  ; simple distance increase
 pull_coord1_dim         = Y Y Y     ; pull along z
@@ -161,7 +161,7 @@ pull_coord1_groups      = 1 2       ; groups 1 (Chain A) and 2 (Chain B) define 
 pull_coord1_start       = no       ; define initial COM distance > 0
 pull_coord1_rate        = 0.00      ; 0.01 nm per ps = 10 nm per ns
 pull_coord1_k           = 1000      ; kJ mol^-1 nm^-2, 4 kT per A which is ok
-pull-coord1-init        = 0.9147216383567918
+pull-coord1-init        = 0.914721560955619
 
 pull_coord2_type        = umbrella  ; harmonic potential
 pull_coord2_geometry    = distance  ; simple distance increase
@@ -170,4 +170,4 @@ pull_coord2_groups      = 3 4       ; groups 1 (Chain A) and 2 (Chain B) define 
 pull_coord2_start       = no       ; define initial COM distance > 0
 pull_coord2_rate        = 0.00      ; 0.01 nm per ps = 10 nm per ns
 pull_coord2_k           = 1000      ; kJ mol^-1 nm^-2, 4 kT per A which is ok
-pull-coord2-init        = 0.883345618946298
+pull-coord2-init        = 0.8909058322690271

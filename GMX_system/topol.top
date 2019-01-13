@@ -2,7 +2,7 @@
 ;	File 'topol.top' was generated
 ;	By user: unknown (1001)
 ;	On host: newton
-;	At date: Sun Jan 13 01:08:29 2019
+;	At date: Sun Jan 13 19:00:03 2019
 ;
 ;	This is a standalone topology file
 ;
@@ -49,14 +49,14 @@ DNA_chain_I         1
 DNA_chain_J         1
 Protein_chain_A     1
 Protein_chain_B     1
-SOL                70
-SOL                71
+SOL                69
+SOL                68
 SOL                96
 SOL                62
 SOL                 3
 SOL                 2
 SOL                 2
 SOL                 2
-SOL         56326
-NA               199
-CL               153
+SOL         54455
+NA               192
+CL               148
