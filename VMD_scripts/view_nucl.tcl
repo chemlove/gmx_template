@@ -1,8 +1,9 @@
-#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1 1
+#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1 1 1
 #first number - smoothing window
 #second number - 0/1 do movie of preview
 #third number - 0/1 render with tachyon or not (tachyon allows commandline rendering)
 #forth number -0/1 display time or not
+#forth number -0/1 update or not ssecondary structure during movie
 set mov [lindex $argv 4] 
 
 set title [lindex $argv 2] 
@@ -21,6 +22,9 @@ set render [lindex $argv 5]
 
 set timesh 0
 set timesh [lindex $argv 6]
+
+set ssflag 0
+set ssflag [lindex $argv 7]
 
 source VMD_scripts/input_param.tcl
 source VMD_scripts/add_text_layer.tcl
@@ -308,7 +312,7 @@ proc src {file args} {
 if {$mov == 1 } {
 puts "Will make images for movie"
 
-src VMD_scripts/movie.tcl $render $timesh
+src VMD_scripts/movie.tcl $render $timesh $ssflag
 
 exit
 }

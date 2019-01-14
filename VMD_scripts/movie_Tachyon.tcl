@@ -19,7 +19,12 @@ add_text_layer TIME
 
 for {set i $first} {$i <= $nframes} {incr i 1} {
 animate goto $i
-mol ssrecalc 0
+
+if {$ssflag == 1 } {
+mol ssrecalc 1
+}
+
+
 mol delete top
 add_text_layer TIME
 draw color 0
