@@ -15,12 +15,12 @@ export OMP_NUM_THREADS=6
 
 
 
-if [[ $(find . -name "*" -mmin -2) ]]; then
-echo "Some files in this folder were modified less than 2 minutes ago"
+if [[ $(find . -name "$1*" -mmin -2) ]]; then
+echo "Some files with current deffnm in this folder were modified less than 2 minutes ago"
 echo "Waiting for another 120 sec and retest ..."
 sleep 120
 
-if [[ $(find . -name "*" -mmin -2) ]]; then
+if [[ $(find . -name "$1*" -mmin -2) ]]; then
 echo "Apparently another simulation is running in this directory"
 echo "We will exit for safety"
 exit -1
