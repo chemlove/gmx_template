@@ -61,6 +61,14 @@ curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.c
 
 
             ;;
+          v)
+mkdir -p VMD_scripts
+cd VMD_scripts
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/VMD_scripts/view_nucl.tcl -o view_nucl.tcl
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/VMD_scripts/movie.tcl -o movie.tcl
+cd ..
+
+            ;;
            all)
 curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@codeload.github.com/intbio/gmx_template/zip/master -o master.zip
 unzip master.zip
