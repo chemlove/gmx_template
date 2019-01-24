@@ -67,6 +67,14 @@ cd VMD_scripts
 curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/VMD_scripts/view_nucl.tcl -o view_nucl.tcl
 curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/VMD_scripts/movie.tcl -o movie.tcl
 cd ..
+            ;;
+          r)
+mkdir -p Run_scripts
+cd Run_scripts
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/Run_scripts/lomo2_run.sh -o lomo2_run.sh
+curl -s https://bb06d1eb07ea8543d3ce493b455852a7d0b1b7f1@raw.githubusercontent.com/intbio/gmx_template/master/Run_scripts/lomo2_run_cont.sh -o lomo2_run_cont.sh
+cd ..
+
 
             ;;
            all)
