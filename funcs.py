@@ -5,22 +5,24 @@ import nglview as nv
 import MDAnalysis as mda
 
 
-def view_nucl(*args,gui=False):
+def view_nucl(*args,gui=False,chconv={}):
+    ch_conv={'A':'A','B':'B','C':'C','D':'D','E':'E','F':'F','G':'G','H':'H','I':'I','J':'J'}
+    ch_conv.update(chconv)
     nuclMD=mda.Universe(*args)
     #prot = nuclMD.select_atoms("protein")
     show=nv.show_mdanalysis(nuclMD,gui=gui)
     show.representations = [
     {"type": "cartoon", "params": {
-        "sele": ":A :E", "color": 0x020AED,"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s :%s"%(ch_conv['A'],ch_conv['E']), "color": 0x020AED,"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":B :F", "color": "green","aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s :%s"%(ch_conv['B'],ch_conv['F']), "color": "green","aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":C :G", "color": 0xE0F705,"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s :%s"%(ch_conv['C'],ch_conv['G']), "color": 0xE0F705,"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":D :H", "color": 0xCE0000,"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s :%s"%(ch_conv['D'],ch_conv['H']), "color": 0xCE0000,"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
         "sele": "nucleic", "color": "grey","aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
