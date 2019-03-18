@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#SBATCH -t 72:00:00
+#SBATCH -t 7-00:00:00
 #SBATCH -p compute
 #SBATCH -J jobname
 #SBATCH -o ogmx.%j
