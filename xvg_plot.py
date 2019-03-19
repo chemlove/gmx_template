@@ -68,7 +68,7 @@ def parse_xvg(fname, sel_columns='all'):
                     metadata[tokens[0]] = tokens[1]
                 else:
                     print('Unsupported entry: {0} - ignoring'.format(tokens[0]), file=sys.stderr)
-            elif line[0].isdigit():
+            elif (line[0].isdigit()) or (line[0]=='-'):
                 num_data.append(map(float, line.split()))
     
     num_data = list(zip(*num_data))
