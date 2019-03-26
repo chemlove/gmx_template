@@ -11,9 +11,8 @@
 # N - number of nodes, 
 # --ntasks-per-node - amount of MPI tasks to run on one node
 # --cpus-per-task - amount of MP threads per one MPI task
-export OMP_NUM_THREADS=6
-
-
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+mpitasks=$(($SLURM_JOB_NUM_NODES*$SLURM_NTASKS_PER_NODE))
 
 if [[ $(find . -name "$1*" -mmin -2) ]]; then
 echo "Some files with current deffnm in this folder were modified less than 2 minutes ago"
@@ -28,8 +27,7 @@ fi
 fi
 
 
-
-mpirun -np $(($SLURM_JOB_NUM_NODES * 2)) gmx_mpi mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1
+mpirun -np $mpitasks gmx_mpi mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1
 
 #Script should be run with 
 #module load slurm gromacs/2018-gcc
