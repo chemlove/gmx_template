@@ -5,6 +5,6 @@ ssh_host="lomo2g" #The name of entry in ssh config file to connect to a supercom
 descr="""
 # MD simulations of H3-H4 with 30 bp of DNA, tails truncated
 - AMBER14SB force field
-- 50 mM NaCl
+- 150 mM NaCl
 - box 2nm
 """
