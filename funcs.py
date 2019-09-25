@@ -5,12 +5,16 @@ import nglview as nv
 import MDAnalysis as mda
 
 
-def view_nucl(*args,gui=False,chconv={}):
+def view_nucl(*args,gui=False,chconv={},selection='all'):
     ch_conv={'A':'A','B':'B','C':'C','D':'D','E':'E','F':'F','G':'G','H':'H','I':'I','J':'J'}
     ch_conv.update(chconv)
-    nuclMD=mda.Universe(*args)
+    if(isinstance(args[0],mda.Universe)):
+        nuclMD=args[0]
+    else:
+        nuclMD=mda.Universe(*args)
     #prot = nuclMD.select_atoms("protein")
-    show=nv.show_mdanalysis(nuclMD,gui=gui)
+    sel=nuclMD.select_atoms(selection)
+    show=nv.show_mdanalysis(sel,gui=gui)
     show.representations = [
     {"type": "cartoon", "params": {
         "sele": ":%s :%s"%(ch_conv['A'],ch_conv['E']), "color": 0x020AED,"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
