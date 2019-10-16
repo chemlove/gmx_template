@@ -15,7 +15,7 @@ export OMP_NUM_THREADS=6
 
 
 
-mpirun -np $(($SLURM_JOB_NUM_NODES * 2)) gmx_mpi mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1 -cpi $1.cpt
+#mpirun -np $(($SLURM_JOB_NUM_NODES * 2)) gmx_mpi mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1
 
 #Script should be run with 
 #module load slurm gromacs/2018-gcc

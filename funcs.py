@@ -51,7 +51,7 @@ def get_files_from_git(gitapiurl,savefoldername):
             get_files_from_git(d['url'],os.path.join(savefoldername,d['name']))
 
   
-def plot_plumed(filename,figsize=(5,5),colormap='Set1', bg_color='lightgray',plot=True,col2plot=False,xlim=False,silent=False):
+def plot_plumed(filename,figsize=(5,5),colormap='Set1', bg_color='lightgray',plot=True,col2plot=False,xlim=False,silent=False,multi=1,xmult=1,ymult=1,xlabel=None,ylabel=None):
     try:
         import matplotlib
         import matplotlib.pyplot as plt
@@ -89,14 +89,23 @@ def plot_plumed(filename,figsize=(5,5),colormap='Set1', bg_color='lightgray',plo
             #color_list = color_map(np.linspace(0, 1, n_series))
             #print(np.linspace(0, 1, n_series))
             #print(color_list)
-            ax.plot(data[:,0], data[:,i])
+            for k in range(multi):
+                ax.plot(data[k::multi,0]*xmult, data[k::multi,i]*ymult,label="%d"%k)
             if(xlim):
                 ax.set_xlim(*xlim)
 
+
     # Formatting Labels & Appearance
-            ax.set_xlabel(labels[0])
-            ax.set_ylabel(labels[i])
+            if(xlabel):
+                ax.set_xlabel(xlabel)
+            else:
+                ax.set_xlabel(labels[0])
+            if(ylabel):
+                ax.set_ylabel(ylabel)
+            else:
+                ax.set_ylabel(labels[i])
             ax.set_facecolor(bg_color)
             ax.grid(True)
+        plt.legend()
         plt.show()
     return data

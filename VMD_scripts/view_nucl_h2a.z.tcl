@@ -1,4 +1,4 @@
-#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1 1 1 1 1 180 0
+#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1 1 1 1 1 180
 #first number - smoothing window \
 #second number - 0/1 do movie of preview
 #third number - 0/1 render with tachyon or not (tachyon allows commandline rendering)
@@ -6,8 +6,7 @@
 #fifth number -0/1 update or not ssecondary structure during movie
 #sixth number movie step in frames
 #senventh number - timestep
-#eighth numer - rotation angle around y
-#ninth numer - rotation angle around x
+#eighth numer - rotation angle
 set mov [lindex $argv 4] 
 
 set title [lindex $argv 2] 
@@ -38,9 +37,6 @@ set timestep [lindex $argv 9]
 
 set rotby 180
 set rotby [lindex $argv 10]
-
-set rotbyx 0
-set rotbyx [lindex $argv 11]
 
 source VMD_scripts/input_param.tcl
 source VMD_scripts/add_text_layer.tcl
@@ -150,7 +146,7 @@ mol smoothrep top 6 $sm
 #Key argininges
 mol representation VDW
 mol color ColorID 3
-mol selection {(chain A E and resid 83 63 49) or (chain B F and resid 45) or (chain C G and resid 42 77) or (chain D H and resid 30)}
+mol selection {(chain A E and resid 83 63 49) or (chain B F and resid 45) or (chain C G and resid 45 80) or (chain D H and resid 30)}
 mol material AOShiny
 mol addrep top
 mol selupdate 7 top 0
@@ -227,7 +223,6 @@ scale by $scale
 translate by $transx $transy $transz
 #added to show dimer from interesting side
 rotate y by $rotby
-rotate x by $rotbyx
 axes location off
 display update ui
 
@@ -247,7 +242,7 @@ set matnum 22
 
 set text(0) "Histones H3"
 set text(1) "Histones H4"
-set text(2) "Histones H2A"
+set text(2) "Histones H2A.Z"
 set text(3) "Histones H2B"
 set text(4) "Min groove ARG"
 set color_text(0) blue3
@@ -349,6 +344,3 @@ src VMD_scripts/movie.tcl $render $timesh $ssflag $movstep $timestep
 
 exit
 }
-
-
-

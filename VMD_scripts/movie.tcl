@@ -8,7 +8,10 @@ set timesh [lindex $argv 1]
 
 set ssflag 0
 set ssflag [lindex $argv 2]
-    
+
+set step 1
+set step [lindex $argv 3]
+
 mol delete 0    
     
 set first 1
@@ -22,8 +25,8 @@ add_text_layer TIME
 
 #animate goto 0
 #render snapshot ../../analysis_data/initial.tga
-
-for {set i $first} {$i <= $nframes} {incr i 1} {
+set filen 1
+for {set i $first} {$i <= $nframes} {incr i $step} {
 animate goto $i
 
 if {$ssflag == 1 } {
@@ -43,10 +46,10 @@ draw text " $txtx [expr $txty-(27*$txtstep)] 0 " $time size 1.5 thickness 3
 display update
 
 if {$render == 1 } {
-render TachyonInternal tmp/dat/$i.dat.tga
+render TachyonInternal tmp/dat/$filen.dat.tga
 } else {
 
-render snapshot tmp/dat/$i.dat.tga
+render snapshot tmp/dat/$filen.dat.tga
 }
-
+set filen [expr $filen + 1]
 }
