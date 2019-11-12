@@ -6,7 +6,7 @@
 #SBATCH -e egmx.%j
 #SBATCH -N 10
 #SBATCH --ntasks-per-node=2
-#SBATCH --cpus-per-task=6
+#SBATCH --cpus-per-task=7
 
 # N - number of nodes, 
 # --ntasks-per-node - amount of MPI tasks to run on one node
