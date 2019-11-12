@@ -19,16 +19,28 @@ def view_nucl(*args,gui=False,chconv={},selection='all',color=False):
         color={'A':0x020AED,'B':"green",'C':0xE0F705,'D':0xCE0000,'DNA':"grey"}
     show.representations = [
     {"type": "cartoon", "params": {
-        "sele": ":%s :%s"%(ch_conv['A'],ch_conv['E']), "color": color['A'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s"%(ch_conv['A']), "color": color['A'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":%s :%s"%(ch_conv['B'],ch_conv['F']), "color": color['B'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s"%(ch_conv['B']), "color": color['B'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":%s :%s"%(ch_conv['C'],ch_conv['G']), "color": color['C'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s"%(ch_conv['C']), "color": color['C'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":%s :%s"%(ch_conv['D'],ch_conv['H']), "color": color['D'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s"%(ch_conv['D']), "color": color['D'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+    }},
+    {"type": "cartoon", "params": {
+        "sele": ":%s"%(ch_conv['E']), "color": color['A'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+    }},
+    {"type": "cartoon", "params": {
+        "sele": ":%s "%(ch_conv['F']), "color": color['B'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+    }},
+    {"type": "cartoon", "params": {
+        "sele": ":%s"%(ch_conv['G']), "color": color['C'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+    }},
+    {"type": "cartoon", "params": {
+        "sele": ":%s "%(ch_conv['H']), "color": color['D'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
         "sele": "nucleic", "color": color['DNA'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
@@ -47,16 +59,28 @@ def nucl_repr(view,chconv={},selection='all',component=0,color=False):
         color={'A':0x020AED,'B':"green",'C':0xE0F705,'D':0xCE0000,'DNA':"grey"}
     view.set_representations([
     {"type": "cartoon", "params": {
-        "sele": ":%s :%s"%(ch_conv['A'],ch_conv['E']), "color": color['A'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s"%(ch_conv['A']), "color": color['A'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":%s :%s"%(ch_conv['B'],ch_conv['F']), "color": color['B'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s"%(ch_conv['B']), "color": color['B'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":%s :%s"%(ch_conv['C'],ch_conv['G']), "color": color['C'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s"%(ch_conv['C']), "color": color['C'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
-        "sele": ":%s :%s"%(ch_conv['D'],ch_conv['H']), "color": color['D'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+        "sele": ":%s"%(ch_conv['D']), "color": color['D'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+    }},
+    {"type": "cartoon", "params": {
+        "sele": ":%s"%(ch_conv['E']), "color": color['A'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+    }},
+    {"type": "cartoon", "params": {
+        "sele": ":%s"%(ch_conv['F']), "color": color['B'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+    }},
+    {"type": "cartoon", "params": {
+        "sele": ":%s"%(ch_conv['G']), "color": color['C'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
+    }},
+    {"type": "cartoon", "params": {
+        "sele": ":%s"%(ch_conv['H']), "color": color['D'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1
     }},
     {"type": "cartoon", "params": {
         "sele": "nucleic", "color": color['DNA'],"aspectRatio":2, "radius":1.5,"radiusSegments":1,"capped":1

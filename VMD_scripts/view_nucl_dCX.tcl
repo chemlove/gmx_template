@@ -1,4 +1,4 @@
-#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1 1 1 1 1 180
+#to make movie run vmd -e view_nucl.tcl -args big_data/h3-h4_xray.pdb big_data/h3-h4.xtc title 1 1 1 1 1 1 1 180 0
 #first number - smoothing window \
 #second number - 0/1 do movie of preview
 #third number - 0/1 render with tachyon or not (tachyon allows commandline rendering)
@@ -6,7 +6,8 @@
 #fifth number -0/1 update or not ssecondary structure during movie
 #sixth number movie step in frames
 #senventh number - timestep
-#eighth numer - rotation angle
+#eighth numer - rotation angle around y
+#ninth numer - rotation angle around x
 set mov [lindex $argv 4] 
 
 set title [lindex $argv 2] 
@@ -37,6 +38,9 @@ set timestep [lindex $argv 9]
 
 set rotby 180
 set rotby [lindex $argv 10]
+
+set rotbyx 0
+set rotbyx [lindex $argv 11]
 
 source VMD_scripts/input_param.tcl
 source VMD_scripts/add_text_layer.tcl
@@ -234,6 +238,7 @@ scale by $scale
 translate by $transx $transy $transz
 #added to show dimer from interesting side
 rotate y by $rotby
+rotate x by $rotbyx
 axes location off
 display update ui
 

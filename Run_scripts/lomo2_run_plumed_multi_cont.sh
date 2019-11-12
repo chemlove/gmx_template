@@ -25,9 +25,10 @@ echo "We will exit for safety"
 exit -1
 fi
 fi
-
-
-mpirun -np $mpitasks gmx_mpi mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1
+z=`expr $3 - 1`
+# mpirun -np $mpitasks gmx_plumed mdrun -ntomp $OMP_NUM_THREADS  -deffnm $1 -cpi $1.cpt -px $1_pullx.xvg -pf $1_pullf.xvg -plumed $2
+mpirun -np $mpitasks gmx_plumed mdrun -ntomp $OMP_NUM_THREADS  -deffnm $1 -cpi $1.cpt -px $1_pullx.xvg -pf $1_pullf.xvg -plumed $2 -multidir `seq -s ' ' 0 $z`
+#mpirun -np $mpitasks gmx_plumed mdrun -ntomp $OMP_NUM_THREADS -gputasks 00 -pme cpu -nb gpu -deffnm $1 -plumed $2 
 
 #Script should be run with 
 #module load slurm gromacs/2018-gcc
